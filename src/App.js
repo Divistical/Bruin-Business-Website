@@ -4,8 +4,9 @@ import About from './pages/About';
 import Team from './pages/Team';
 import Project from './pages/Project';
 import Contact from './pages/Contact';
-import Join from './pages/Join';
 import None from './pages/None';
+import StudentJoin from './pages/StudentJoin';
+import BusinessJoin from './pages/BusinessJoin';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path='team' element={<Team />} />
           <Route path='projects' element={<Project />} />
           <Route path='contact' element={<Contact />} />
-          <Route path='join' element={<Join />} />
+          <Route path='join-student' element={<StudentJoin />} />
+          <Route path='join-business' element={<BusinessJoin />} />
           <Route path='*' element={<None />} />
         </Routes>
       </BrowserRouter>
