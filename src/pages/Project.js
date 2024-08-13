@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 
 export default function Project() {
@@ -5,6 +6,7 @@ export default function Project() {
   
       <>
       <Navbar />
+      <Footer />
       </>
     )
   }
