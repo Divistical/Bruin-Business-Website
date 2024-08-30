@@ -1,0 +1,64 @@
+.form-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: #f3f3f3;
+    flex-direction: column;
+    margin: 0; 
+
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px; 
+    transition: transform 0.2s;
+    width: 500px;
+    text-align: center;
+    margin: 20px; 
+}
+
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px; /* Reduced padding */
+    border-radius: 10px;
+    margin-top: 10px; /* Reduced margin-top */
+    margin-bottom: 10px; /* Reduced margin-bottom */
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #4CAF50;
+    width: auto;
+    font-size: 16px;
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+button.switch {
+    background-color: #007BFF; 
+}
+
+button.signout {
+    background-color: #DC3545; 
+}
