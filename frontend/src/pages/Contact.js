@@ -1,12 +1,24 @@
-import Footer from "../components/Footer"
-import Navbar from "../components/Navbar"
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import './css/Contact.css'
 
 export default function Contact() {
-    return (
-  
-      <>
+
+  return (
+    <>
       <Navbar />
+      <div className="text-block">
+        <h1>BUSINESS</h1>
+        <p>
+          For all business inquiries, please contact our "placeholder@bruinbusiness.com"
+        </p>
+        <br /> <br />
+        <h1>GENERAL</h1>
+        <p>
+          For all general questions, please reach out to us on any of our official accounts.
+        </p>
+      </div>
       <Footer />
-      </>
-    )
-  }
+    </>
+  );
+}

@@ -18,8 +18,9 @@
     transform: translate(-50%, -50%); 
     text-align: center;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     z-index: 1; 
+    font-size: 80px;
+    /* font-family: poppins; */
   }

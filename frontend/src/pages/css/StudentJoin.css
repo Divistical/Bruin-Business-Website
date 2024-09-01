@@ -1,0 +1,18 @@
+.text-block {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; 
+    padding: 50px; 
+    height: 100vh; 
+}
+
+.button {
+  background-color: #003B5C;
+  width: 8vw;
+}
+
+h1 {
+    color: #003B5C;
+}
+  

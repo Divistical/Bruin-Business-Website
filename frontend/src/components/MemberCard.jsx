@@ -18,6 +18,7 @@ export default function MemberCard({ position, name, image }) {
       <div className="member-info">
         <p className="position">{position}</p>
         <p className="name">{name}</p>
+        
       </div>
     </div>
   );

@@ -8,8 +8,8 @@
 
 .logo-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     padding: 10px 0; 
     flex-wrap: nowrap;
 }
@@ -28,4 +28,5 @@
 .footer-bottom {
     font-size: 0.8em; 
     padding-top: 5px; 
+    justify-content: center;
 }
