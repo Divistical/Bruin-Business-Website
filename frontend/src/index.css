@@ -25,8 +25,19 @@ a {
   display: flex;
   flex-direction: column;
   min-height: 100vh; 
+  font-family: "STIX Two Text" , sans-serif;
+  font-weight: 400;
+  font-size: 20;
+  text-align: center; 
+  margin: 0 auto; 
+  line-height: 1.6;
+  position: relative;
 }
 
 .content-wrap {
   flex: 1; 
+  justify-content: flex-start;
+  position: relative;
+  text-align: center;
+  padding: 150px;
 }

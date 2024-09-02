@@ -5,7 +5,6 @@ export default function Homepage() {
   return (
     <main>
         <h1>Bruin Business</h1>
-        
         <img src={roycehall}></img>
         <div></div>
     </main>

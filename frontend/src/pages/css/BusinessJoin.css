@@ -4,15 +4,9 @@
     flex-direction: column;
     margin: 0 auto; 
     padding: 50px; 
-    height: 130vh; 
+    height: 100vh; 
 }
 
-.button {
-  background-color: #003B5C;
-  width: 8vw;
+p {
+    color: #0E215B;
 }
-
-h1 {
-    color: #003B5C;
-}
-  

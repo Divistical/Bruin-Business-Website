@@ -1,4 +1,4 @@
-.text-block {
+/* .text-block {
     text-align: center; 
     margin: 0 auto; 
     padding: 50px; 
@@ -7,7 +7,8 @@
     font-family: "STIX Two Text" , sans-serif;
     font-weight: 400;
     font-size: 20;
-  }
+    bottom: -350px;
+  } */
 
 .container { /* got rid of unneccessary styling and moved background color from here to border */
   display: flex;
@@ -32,7 +33,7 @@
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 15px;
-  padding: 18px 60px; 
+  padding: 18px 20px; 
   float: right;
   background-color: #003B5C;
   border-radius: 30px;

@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <Navbar />
-      <div className={`text-block`}>
+      <div className="page-container">
         <h1>ABOUT US</h1>
         <p>
           Established in 2024, Bruin Business is UCLA's newest business
@@ -32,7 +32,7 @@ export default function About() {
           <br /> <br />
           To keep up with our events, feel free to join us through following our newsletter, Instagram, Facebook, and LinkedIn!
         </p>
-        <div className="container"> {/* The interactive forum box; will fix out of bound bg-color; will adjust the border size of container   */}
+        <div className="container"> 
           <p style={{ fontWeight: "600" , fontSize: "50px" }} className="border">
             Join Bruin Business Today!
             <button className="button" onClick={() => navigate('/join-student')}> Join Now </button>
@@ -41,8 +41,8 @@ export default function About() {
             </p>
           </p>
         </div>
+        <Footer/>
       </div>
-      <Footer />
     </>
   );
 }

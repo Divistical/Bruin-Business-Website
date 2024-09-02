@@ -1,9 +1,11 @@
-.text-block {
-    text-align: center; 
-    margin: 0 auto; 
-    padding: 50px; 
-    line-height: 1.6;
-  }
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  height: 70vh;
+  padding: 10px;
+}
 
 h1 {
     color: #003B5C;

@@ -1,0 +1,12 @@
+.page-container-home{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+h1 {
+  font-family: "STIX Two Text" , sans-serif;
+  font-size: 40px;
+  font-weight: 600px;
+  color: black;
+}
