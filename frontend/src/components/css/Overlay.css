@@ -1,6 +1,6 @@
 .background-section {
     position: relative;
-    background-image: url('../assets/UCLACampusWithFountain.jpg'); 
+    background-image: url('../../assets/UCLACampusWithFountain.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

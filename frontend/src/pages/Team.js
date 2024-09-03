@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import MemberCard from "../components/MemberCard";
+import AddMemberForm from "../components/AddMemberForm"; // Import the new component
 import { AuthContext } from "../AuthContext";
 import "./css/Team.css";
 import axios from "axios";
@@ -13,11 +14,7 @@ export default function Team() {
   const [currentTeam, setCurrentTeam] = useState("executives");
   const [teamData, setTeamData] = useState([]);
   const [editingMember, setEditingMember] = useState(null); 
-  const [editValues, setEditValues] = useState({ name: "", role: "" });
-  const [name, setName] = useState("");
-  const [position, setPosition] = useState("");
-  const [image, setImage] = useState(null);
-  const [selectedTeam, setSelectedTeam] = useState("executives");
+  const [editValues, setEditValues] = useState({ name: "", role: "", linkedin: "" });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,37 +32,6 @@ export default function Team() {
   useEffect(() => {
     setEditingMember(null);
   }, [currentTeam]);
-
-  const handleAddMember = async (e) => {
-    e.preventDefault(); 
-    if (!name || !position || !selectedTeam) {
-      console.error("Name, position, and team are required.");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("position", position);
-    formData.append("team", selectedTeam);
-    if (image) {
-      formData.append("image", image);
-    }
-
-    try {
-      const response = await axios.post(`${backend_link}/api/members`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        }
-      });
-      setTeamData((prevData) => [...prevData, response.data]);
-      setName("");
-      setPosition("");
-      setImage(null);
-      setSelectedTeam("executives"); 
-    } catch (error) {
-      console.error("Error adding member:", error);
-    }
-  };
 
   const handleRemoveMember = async (id) => {
     try {
@@ -90,6 +56,7 @@ export default function Team() {
         const updatedMember = {
           name: editValues.name,
           position: editValues.role,
+          linkedin: editValues.linkedin,
         };
         const response = await axios.put(
           `${backend_link}/api/members/${editingMember}`,
@@ -107,6 +74,10 @@ export default function Team() {
     }
   };
 
+  const handleMemberAdded = (newMember) => {
+    setTeamData((prevData) => [...prevData, newMember]);
+  };
+
   return (
     <>
       <Navbar />
@@ -122,6 +93,7 @@ export default function Team() {
               image={`data:image/jpeg;base64,${item.image}`}
               position={item.position}
               name={item.name}
+              linkedin={item.linkedin}
             />
             {isAdmin && (
               <div className="card-options">
@@ -156,6 +128,17 @@ export default function Team() {
                           }))
                         }
                       />
+                      <input
+                        type="text"
+                        value={editValues.linkedin}
+                        placeholder="New Link"
+                        onChange={(e) =>
+                          setEditValues((prev) => ({
+                            ...prev,
+                            linkedin: e.target.value,
+                          }))
+                        }
+                      />
                       <button className="confirm-btn" onClick={confirmEdit}>
                         Confirm
                       </button>
@@ -175,41 +158,7 @@ export default function Team() {
           </div>
         ))}
       </div>
-      {isAdmin && (
-        <div className="add-member">
-          <form onSubmit={handleAddMember}>
-            <select
-              value={selectedTeam}
-              onChange={(e) => setSelectedTeam(e.target.value)}
-              required
-            >
-              <option value="executives">Executives</option>
-              <option value="managers">Project Managers</option>
-              <option value="interns">Interns</option>
-            </select>
-            <input
-              type="file"
-              onChange={(e) => setImage(e.target.files[0])}
-              accept="image/*"
-            />
-            <input
-              type="text"
-              value={position}
-              onChange={(e) => setPosition(e.target.value)}
-              placeholder="Position"
-              required
-            />
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Name"
-              required
-            />
-            <button type="submit">Add Member</button>
-          </form>
-        </div>
-      )}
+      {isAdmin && <AddMemberForm backend_link={backend_link} onMemberAdded={handleMemberAdded} />}
       <Footer />
     </>
   );

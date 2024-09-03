@@ -84,9 +84,10 @@ app.post('/api/members', upload.single("image"), async (req, res) => {
     if (req.file) {
       image = req.file.buffer.toString('base64')
     }
-    const { name, position, team} = req.body
+
+    const { name, position, team, linkedin} = req.body
     console.log(name, position)
-    const newMember = new Member({ name, position, team, image});
+    const newMember = new Member({ name, position, team, image, linkedin});
     await newMember.save();
     res.status(201).json(newMember);
   } catch (error) {

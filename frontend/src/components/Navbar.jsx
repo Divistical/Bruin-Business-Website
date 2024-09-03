@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/bruinlogo.png'
-import './Navbar.css';
+import './css/Navbar.css';
 import Overlay from './Overlay';
 
 export default function Navbar() {

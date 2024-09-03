@@ -1,8 +1,9 @@
-import "./MemberCard.css";
+import "./css/MemberCard.css";
+import linkedlogo from "../assets/linkedin.png";
 import { useRef } from "react";
 import useIntersectionObserver from "../useIntersectionObserver";
 
-export default function MemberCard({ position, name, image }) {
+export default function MemberCard({ position, name, image, linkedin }) {
   const ref = useRef();
   const isVisible = useIntersectionObserver(ref, { threshold: 0.1 });
 
@@ -18,7 +19,13 @@ export default function MemberCard({ position, name, image }) {
       <div className="member-info">
         <p className="position">{position}</p>
         <p className="name">{name}</p>
-        
+        {linkedin ? (
+          <a href={linkedin} target="_blank">
+            <img className="linkedin" src={linkedlogo} />
+          </a>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
