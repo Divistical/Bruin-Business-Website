@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Slideshow from "../components/Slideshow";
 import './css/Home.css'
 import Footer from "../components/Footer";
+//import overlay file (overlay-content)
 
 export default function Home() {
   return (

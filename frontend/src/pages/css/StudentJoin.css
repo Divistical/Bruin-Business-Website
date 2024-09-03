@@ -1,18 +1,24 @@
-.text-block {
-    justify-content: center;
+/* .text-block {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     margin: 0 auto; 
     padding: 50px; 
-    height: 130vh; 
+    min-height: 100vh; 
+    position: relative;
 }
+
+replaced with .page-container class for image scaling
+*/
 
 .button {
   background-color: #003B5C;
   width: 8vw;
+  margin-bottom: 78px;
 }
 
 h1 {
-    color: #003B5C;
+  margin-top: 78px;
+  color: #000000;
+  font-weight: 600;
 }
-  

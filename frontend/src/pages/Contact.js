@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <>
       <Navbar />
-      <div className="contact-container">
+      <div className="page-container"> 
         <h1>BUSINESS</h1>
         <p>
           For all business inquiries, please contact our "placeholder@bruinbusiness.com"
