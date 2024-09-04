@@ -9,27 +9,17 @@ export default function StudentJoin() {
   return (
     <>
       <Navbar />
-      <div className="text-block">
+      <div className="page-container">
         <h1>GENERAL MEMBERS</h1>
-        <br/>
-        <br/>
         <button className="button" onClick={() => navigate('/join-student')}> Apply Here </button>
-        <h1>INTERNS</h1>
-        <br/>
         
-        <br/>
+        <h1>INTERNS</h1>
         <button className="button" onClick={() => navigate('/join-student')}> Apply Here </button>
 
         <h1>PROJECT MANAGERS</h1>
-        <br/>
-        
-        <br/>
         <button className="button" onClick={() => navigate('/join-student')}> Apply Here </button>
 
         <h1>EXECUTIVES</h1>
-        <br/>
-        
-        <br/>
         <button className="button" onClick={() => navigate('/join-student')}> Apply Here </button>
       </div>
       <Footer />

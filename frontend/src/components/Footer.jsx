@@ -1,5 +1,5 @@
 import logo from "../assets/bruinlogo.png";
-import './Footer.css'
+import './css/Footer.css'
 
 export default function Footer() {
   return (

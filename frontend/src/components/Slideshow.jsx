@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../AuthContext";
 import AdminDashboard from "./AdminDashboard1";
-import "./Slideshow.css";
+import "./css/Slideshow.css";
 
 const backend_link = process.env.REACT_APP_BACKEND_URL || ""; 
 
@@ -10,10 +10,6 @@ export default function Slideshow() {
   const [sliding, setSliding] = useState(false);
   const [slideDirection, setSlideDirection] = useState("");
   const [slides, setSlides] = useState([]);
-  const [showAdminDashboard, setShowAdminDashboard] = useState(false);
-
-  const { isAdmin } = useContext(AuthContext); 
-  console.log(isAdmin);
 
   const fetchSlides = async () => {
     try {
@@ -22,19 +18,6 @@ export default function Slideshow() {
       setSlides(data);
     } catch (error) {
       console.error("Error fetching slides:", error);
-    }
-  };
-
-  const addSlide = async (formData) => {
-    try {
-      const response = await fetch(`${backend_link}/api/slides`, {
-        method: "POST",
-        body: formData,
-      });
-      const newSlide = await response.json();
-      setSlides([...slides, newSlide]);
-    } catch (error) {
-      console.error("Error adding slide:", error);
     }
   };
 
@@ -90,26 +73,9 @@ export default function Slideshow() {
     return () => clearInterval(interval);
   }, [slides]);
 
-  const toggleAdminDashboard = () => {
-    setShowAdminDashboard(!showAdminDashboard);
-  };
 
   return (
     <div className="slideshow-container">
-      {isAdmin && (
-        <>
-          <button
-            className="admin-toggle"
-            onClick={toggleAdminDashboard}
-            style={{ display: "block", position: "relative", zIndex: 10 }}
-          >
-            {showAdminDashboard
-              ? "Hide Admin Dashboard"
-              : "Show Admin Dashboard"}
-          </button>
-          {showAdminDashboard && <AdminDashboard addSlide={addSlide} />}
-        </>
-      )}
       {slides.length > 0 && (
         <div className={`slide ${sliding ? `slide-${slideDirection}` : ""}`}>
           {slides[currentIndex].imageUrl &&

@@ -1,4 +1,4 @@
-import './Overlay.css'
+import './css/Overlay.css'
 
 export default function Overlay({ children, message }) {
   return (

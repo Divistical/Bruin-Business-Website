@@ -1,4 +1,4 @@
-.text-block {
+/* .text-block {
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -6,6 +6,7 @@
     padding: 50px; 
     height: 100vh; 
 }
+*/
 
 p {
     color: #0E215B;
