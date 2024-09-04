@@ -8,16 +8,18 @@
 
 .logo-container {
     display: flex;
-    align-items: left;
-    justify-content: left;
     padding: 10px 0; 
     flex-wrap: nowrap;
+    margin-left: 10px;
 }
 
 .logo {
     height: 40px; 
     width: auto;
+    display: flex;
     margin-right: 10px; 
+    align-items: center;
+
 }
 
 .brand-name {
@@ -27,6 +29,11 @@
 
 .footer-bottom {
     font-size: 0.8em; 
-    padding-top: 5px; 
-    justify-content: center;
+    padding-left: 280px; 
 }
+
+.socials-container {
+    display: flex;
+    gap: 10px; 
+    margin-left: 280px; 
+  }

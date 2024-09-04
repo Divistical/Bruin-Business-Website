@@ -13,12 +13,15 @@ replaced with .page-container class for image scaling
 
 .button {
   background-color: #003B5C;
-  width: 8vw;
-  margin-bottom: 78px;
+  width: 12vw;
+  height: 7vh;
+  font-family: "STIX Two Text" , sans-serif;
+  border-radius: 0px;
+  margin-bottom: 39px;
 }
 
 h1 {
-  margin-top: 78px;
+  margin-top: 39px;;
   color: #000000;
   font-weight: 600;
 }

@@ -35,7 +35,7 @@ export default function About() {
         <div className="container"> 
           <p style={{ fontWeight: "600" , fontSize: "50px" }} className="border">
             Join Bruin Business Today!
-            <button className="button" onClick={() => navigate('/join-student')}> Join Now </button>
+            <button className="about-button" onClick={() => navigate('/join-student')}> Join Now </button>
             <p style={{ fontFamily: "Noto Sans", fontSize: "20px" }}>
               Become a part of our community and gain valuable skills and experiences.
             </p>
