@@ -69,6 +69,15 @@ app.get("/api/slides", async (req, res) => {
   }
 });
 
+app.delete('/api/slides/:id', async (req, res) => {
+  try {
+    const result = await Slide.findByIdAndDelete(req.params.id);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.get('/api/members', async (req, res) => {
   try {
     const members = await Member.find();

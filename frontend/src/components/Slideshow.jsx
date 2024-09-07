@@ -1,11 +1,13 @@
 import { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import { AuthContext } from "../AuthContext";
 import AdminDashboard from "./AdminDashboard1";
 import "./css/Slideshow.css";
 
-const backend_link = process.env.REACT_APP_BACKEND_URL || ""; 
+const backend_link = process.env.REACT_APP_BACKEND_URL || "";
 
 export default function Slideshow() {
+  const { isAdmin } = useContext(AuthContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sliding, setSliding] = useState(false);
   const [slideDirection, setSlideDirection] = useState("");
@@ -24,6 +26,15 @@ export default function Slideshow() {
   useEffect(() => {
     fetchSlides();
   }, []);
+
+  const handleRemoveSlide = async (id) => {
+    try {
+      await axios.delete(`${backend_link}/api/slides/${id}`);
+      setSlides((prevData) => prevData.filter((slide) => slide._id !== id));
+    } catch (error) {
+      console.error("Error removing slide:", error);
+    }
+  };
 
   const NextSlide = () => {
     if (!sliding && slides.length > 0) {
@@ -66,13 +77,14 @@ export default function Slideshow() {
   }, [slides]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      NextSlide();
-    }, 3000);
+    if (slides.length > 1) {
+      const interval = setInterval(() => {
+        NextSlide();
+      }, 3000);
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, [slides]);
-
 
   return (
     <div className="slideshow-container">
@@ -80,21 +92,49 @@ export default function Slideshow() {
         <div className={`slide ${sliding ? `slide-${slideDirection}` : ""}`}>
           {slides[currentIndex].imageUrl &&
             (slides[currentIndex].linkUrl ? (
-              <a
-                href={slides[currentIndex].linkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <div>
+                {isAdmin && (
+                  <div className="remove-container">
+                    <button
+                      className="remove-btn"
+                      onClick={() =>
+                        handleRemoveSlide(slides[currentIndex]._id)
+                      }
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
+                <a
+                  href={slides[currentIndex].linkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={`data:image/jpeg;base64,${slides[currentIndex].imageUrl}`}
+                    alt={`Slide ${currentIndex + 1}`}
+                  />
+                </a>
+              </div>
+            ) : (
+              <div>
+                {isAdmin && (
+                  <div className="remove-container">
+                    <button
+                      className="remove-btn"
+                      onClick={() =>
+                        handleRemoveSlide(slides[currentIndex]._id)
+                      }
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
                 <img
                   src={`data:image/jpeg;base64,${slides[currentIndex].imageUrl}`}
                   alt={`Slide ${currentIndex + 1}`}
                 />
-              </a>
-            ) : (
-              <img
-                src={`data:image/jpeg;base64,${slides[currentIndex].imageUrl}`}
-                alt={`Slide ${currentIndex + 1}`}
-              />
+              </div>
             ))}
         </div>
       )}
