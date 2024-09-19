@@ -7,6 +7,7 @@ const cors = require("cors");
 const authRoutes = require("./auth");
 const Slide = require("./models/Slide");
 const Member = require("./models/Member");
+
 require('dotenv').config()
 
 const app = express();

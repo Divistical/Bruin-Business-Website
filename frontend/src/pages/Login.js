@@ -23,6 +23,7 @@ export default function Login() {
         username,
         password,
       });
+      console.log(response.data)
       const token = response.data.token
       localStorage.setItem("token", token);
       checkAdminStatus(token)
