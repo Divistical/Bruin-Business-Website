@@ -8,6 +8,10 @@ const authRoutes = require("./auth");
 const Slide = require("./models/Slide");
 const Member = require("./models/Member");
 
+const cookieParser = require("cookie-parser");
+
+
+
 require('dotenv').config()
 
 const app = express();
@@ -21,6 +25,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
   app.use(express.json());
   app.use(cors());
+  // for storing jwts in cookies
+  app.use(cookieParser());
 
   app.use("/api", authRoutes)
 
