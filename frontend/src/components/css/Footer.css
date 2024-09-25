@@ -1,0 +1,39 @@
+.footer {
+    background-color: #003B5C; 
+    color: white; 
+    text-align: center;
+    padding: 10px 0; 
+    border-top: 2px solid black; 
+}
+
+.logo-container {
+    display: flex;
+    padding: 10px 0; 
+    flex-wrap: nowrap;
+    margin-left: 10px;
+}
+
+.logo {
+    height: 40px; 
+    width: auto;
+    display: flex;
+    margin-right: 10px; 
+    align-items: center;
+
+}
+
+.brand-name {
+    font-size: 1.2em; 
+    white-space: nowrap;
+}
+
+.footer-bottom {
+    font-size: 0.8em; 
+    padding-left: 280px; 
+}
+
+.socials-container {
+    display: flex;
+    gap: 10px; 
+    margin-left: 280px; 
+  }

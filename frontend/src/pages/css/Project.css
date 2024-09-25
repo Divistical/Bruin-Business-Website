@@ -1,0 +1,18 @@
+.text-block {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 50px; 
+    height: 100vh; 
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    border-radius: 20px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  

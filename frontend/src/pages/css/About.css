@@ -1,0 +1,48 @@
+/* .text-block {
+    text-align: center; 
+    margin: 0 auto; 
+    padding: 50px; 
+    line-height: 1.6;
+    position: relative;
+    font-family: "STIX Two Text" , sans-serif;
+    font-weight: 400;
+    font-size: 20;
+    bottom: -350px;
+  } */
+
+.container { /* got rid of unneccessary styling and moved background color from here to border */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+.border { 
+  justify-content: flex-start;
+  position: relative;
+  border-width: 1px;
+  border-radius: 20px;
+  border-style: solid;
+  text-align: left;
+  padding: 150px;
+  width: 70%;
+  box-shadow: 5px 7px 12px rgba(0, 0, 0, 0.6);  /* optional: remove for sleeker look */
+  background-color: #dfdfdf;
+}
+
+.about-button {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 18px 20px; 
+  float: right;
+  background-color: #003B5C;
+  border-radius: 20px;
+}
+
+h1 {
+    color: #003B5C;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+  
