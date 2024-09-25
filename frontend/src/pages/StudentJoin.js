@@ -11,16 +11,29 @@ export default function StudentJoin() {
       <Navbar />
       <div className="page-container">
         <h1>GENERAL MEMBERS</h1>
-        <button className="button" onClick={() => navigate('/join-student')}> Apply Here </button>
-        
+        <div class="container">
+          <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf--xH9d9ORttrJwnMVOivIiP8NGoZLLUdWL5U_sFqWU6IF9w/viewform" target="_blank" rel="noopener noreferrer"> 
+            Apply Here 
+          </a>  
+        </div>      
         <h1>INTERNS</h1>
-        <button className="button" onClick={() => navigate('/join-student')}> Apply Here </button>
-
+        <div class="container">
+          <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf--xH9d9ORttrJwnMVOivIiP8NGoZLLUdWL5U_sFqWU6IF9w/viewform" target="_blank" rel="noopener noreferrer"> 
+            Apply Here 
+          </a>  
+        </div>   
         <h1>PROJECT MANAGERS</h1>
-        <button className="button" onClick={() => navigate('/join-student')}> Apply Here </button>
-
+        <div class="container">
+          <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf--xH9d9ORttrJwnMVOivIiP8NGoZLLUdWL5U_sFqWU6IF9w/viewform" target="_blank" rel="noopener noreferrer"> 
+            Apply Here 
+          </a>  
+        </div>   
         <h1>EXECUTIVES</h1>
-        <button className="button" onClick={() => navigate('/join-student')}> Apply Here </button>
+        <div class="container">
+          <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf--xH9d9ORttrJwnMVOivIiP8NGoZLLUdWL5U_sFqWU6IF9w/viewform" target="_blank" rel="noopener noreferrer"> 
+            Apply Here 
+          </a>  
+        </div>   
       </div>
       <Footer />
     </>

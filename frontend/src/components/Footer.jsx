@@ -17,7 +17,7 @@ export default function Footer() {
         </span>
         <div className="socials-container">
           <a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/company/bruin-business/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -31,7 +31,7 @@ export default function Footer() {
             <img src={facebook} style={{ cursor: 'pointer' }} className="logo"/>
           </a>
           <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/bruinbusiness/"
               target="_blank"
               rel="noopener noreferrer"
           >
