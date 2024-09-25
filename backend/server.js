@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -10,25 +10,29 @@ const Member = require("./models/Member");
 
 const cookieParser = require("cookie-parser");
 
-
-
-require('dotenv').config()
+require("dotenv").config();
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(() => console.log("MongoDB connected"))
-  .catch(err => console.error("MongoDB connection error:", err));
+  .catch((err) => console.error("MongoDB connection error:", err));
 
-  app.use(express.json());
-  app.use(cors());
-  // for storing jwts in cookies
-  app.use(cookieParser());
+app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Replace with your client's origin
+    credentials: true,
+  })
+);
+// for storing jwts in cookies
+app.use(cookieParser());
 
-  app.use("/api", authRoutes)
+app.use("/api", authRoutes);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -43,27 +47,26 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: multer.memoryStorage()});
+const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(express.json());
 
 app.post("/api/slides", upload.single("image"), async (req, res) => {
-  console.log("Received request to add slide", req.body, req.file); 
+  console.log("Received request to add slide", req.body, req.file);
   try {
     const linkUrl = req.body.linkUrl || "";
     if (!req.file) {
       return res.status(400).json({ error: "Image file is required" });
     }
-    const imageUrl = req.file.buffer.toString('base64')
+    const imageUrl = req.file.buffer.toString("base64");
 
     const newSlide = new Slide({ imageUrl, linkUrl });
-    await newSlide.save()
+    await newSlide.save();
     res.status(201).json(newSlide);
   } catch (err) {
-    console.error('Error saving slide:', err)
-    res.status(500).json({error: "Internal Server Error"})
+    console.error("Error saving slide:", err);
+    res.status(500).json({ error: "Internal Server Error" });
   }
-  
 });
 
 app.get("/api/slides", async (req, res) => {
@@ -71,12 +74,12 @@ app.get("/api/slides", async (req, res) => {
     const slides = await Slide.find({});
     res.json(slides);
   } catch (error) {
-    console.error('Error fetching slides:', error);
+    console.error("Error fetching slides:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-app.delete('/api/slides/:id', async (req, res) => {
+app.delete("/api/slides/:id", async (req, res) => {
   try {
     const result = await Slide.findByIdAndDelete(req.params.id);
     res.json(result);
@@ -85,7 +88,7 @@ app.delete('/api/slides/:id', async (req, res) => {
   }
 });
 
-app.get('/api/members', async (req, res) => {
+app.get("/api/members", async (req, res) => {
   try {
     const members = await Member.find();
     res.json(members);
@@ -94,25 +97,25 @@ app.get('/api/members', async (req, res) => {
   }
 });
 
-app.post('/api/members', upload.single("image"), async (req, res) => {
+app.post("/api/members", upload.single("image"), async (req, res) => {
   try {
-    let image = ""
+    let image = "";
     if (req.file) {
-      image = req.file.buffer.toString('base64')
+      image = req.file.buffer.toString("base64");
     }
 
-    const { name, position, team, linkedin} = req.body
-    console.log(name, position)
-    const newMember = new Member({ name, position, team, image, linkedin});
+    const { name, position, team, linkedin } = req.body;
+    console.log(name, position);
+    const newMember = new Member({ name, position, team, image, linkedin });
     await newMember.save();
     res.status(201).json(newMember);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 });
 
-app.delete('/api/members/:id', async (req, res) => {
+app.delete("/api/members/:id", async (req, res) => {
   try {
     const result = await Member.findByIdAndDelete(req.params.id);
     res.json(result);
@@ -121,7 +124,7 @@ app.delete('/api/members/:id', async (req, res) => {
   }
 });
 
-app.put('/api/members/:id', async (req, res) => {
+app.put("/api/members/:id", async (req, res) => {
   try {
     const updatedMember = await Member.findByIdAndUpdate(
       req.params.id,
@@ -135,7 +138,7 @@ app.put('/api/members/:id', async (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.error(err.stack); 
+  console.error(err.stack);
   res.status(500).send("Something broke!");
   console.log("no work");
 });
