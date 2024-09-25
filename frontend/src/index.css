@@ -41,3 +41,7 @@ a {
   text-align: center;
   padding: 150px;
 }
+
+body {
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
