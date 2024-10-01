@@ -19,7 +19,7 @@ export default function Navbar() {
     <Overlay>
       <nav className="navbar">
         <a href='/home'>
-          <div className="logo-container">
+          <div className="logo-container-nav">
             <img src={logo} className='logo' alt="Bruin Business Logo" />
             <span className="brand-name">Bruin Business</span>
           </div>
