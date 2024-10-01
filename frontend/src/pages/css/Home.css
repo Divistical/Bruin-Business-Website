@@ -85,10 +85,15 @@ footer {
   width: 100%;
 }
 
+/* Fixed Header */
+.overlay-content h1 {
+  font-size: 100px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .overlay-content h1 {
-    font-size: 50px; /* Adjust font size for smaller screens */
+    font-size: 2em; /* Adjust font size for smaller screens */
     padding: 0 10px; /* Add padding to prevent overflow */
     text-align: center; /* Center text */
   }

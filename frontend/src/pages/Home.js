@@ -35,7 +35,7 @@ export default function Home() {
     <div className="page-container-home">
       <Navbar />
       <div className="overlay-content">
-        <h1 style={{ fontSize: "100px", color: "#003B5C"}}>Bruin Business</h1>
+        <h1 style={{ color: "#003B5C"}}>Bruin Business</h1>
       </div>
       <div className="content-wrap">
         {isAdmin && (

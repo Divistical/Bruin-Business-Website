@@ -13,7 +13,7 @@ export default function StudentJoin() {
         <h1>GENERAL MEMBERS</h1>
         <div class="container">
           <a className="button" href="https://docs.google.com/forms/d/e/1FAIpQLSemptgQ34KOtvxrwJ9GCuAGGHM-KPTytShcv4HhvCszqpgKcg/viewform" target="_blank" rel="noopener noreferrer"> 
-            Apply Here 
+            APPLY HERE
           </a>  
         </div>      
         <h1>INTERNS</h1>

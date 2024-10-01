@@ -1,16 +1,16 @@
 html, body {
-    height: 100%; /* Ensure the body takes the full height */
-    margin: 0; /* Remove default margin */
+    height: 100%; 
+    margin: 0; 
 }
 
 body {
     display: flex;
-    flex-direction: column; /* Stack footer at the bottom */
+    flex-direction: column; 
 }
 
 .page-container {
-    flex: 1; /* This allows the page container to take up available space */
-    padding-bottom: 50px; /* Add space to prevent content from hiding behind the footer */
+    flex: 1; 
+    padding-bottom: 50px; 
 }
 
 .footer {
@@ -19,8 +19,7 @@ body {
     text-align: center;
     padding: 10px 0; 
     border-top: 2px solid black; 
-    /* Make the footer fixed at the bottom */
-    position: relative; /* Keep it relative to the document flow */
+    position: relative; 
     overflow: hidden;
 }
 
@@ -29,6 +28,7 @@ body {
     padding: 10px 0; 
     flex-wrap: nowrap;
     margin-left: 10px;
+    align-items: center;
 }
 
 .logo {
@@ -53,4 +53,28 @@ body {
     display: flex;
     gap: 10px; 
     margin-left: 280px; 
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px 0; 
+    }
+
+    .logo-container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .brand-name {
+        margin-top: 10px; /* Adjust the spacing between logo and brand name */
+    }
+
+    .footer-bottom {
+        display: none; 
+    }
+
+    .socials-container {
+        margin-top: 20px; 
+        margin-left: 0; 
+    }
 }

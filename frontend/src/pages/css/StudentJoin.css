@@ -19,7 +19,7 @@ replaced with .page-container class for image scaling
   width: 50vw;
   height: 7vh;
   font-family: "STIX Two Text" , sans-serif;
-  border-radius: 0px;
+  border-radius: 20px;
   /* margin-bottom: 39px; */
 }
 
@@ -29,7 +29,7 @@ h1 {
   font-weight: 600;
 }
 
-.container{
-  width: 10%;
+.container {
+  max-width: 200px;
   text-align: center;
 }
