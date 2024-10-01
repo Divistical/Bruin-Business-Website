@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../AuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -40,6 +40,10 @@ export default function Login() {
       setError("Failed to login. Please check your username and password.");
     }
   };
+
+  useEffect(() => {
+    console.log(isAdmin);
+  }, [isAdmin]);
 
   const handleSubmitRegister = async (event) => {
     event.preventDefault();

@@ -8,18 +8,17 @@ export const AuthProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const checkAdminStatus = (token) => {
-
     if (!token) {
       token = Cookies.get("token");
     }
-
+  
     if (token) {
       try {
-        console.log("Token:", token);
         const decodedToken = jwtDecode(token);
-        setIsAdmin(true);
+        console.log("Decoded token:", decodedToken); // Verify the token has isAdmin
+        setIsAdmin(decodedToken.isAdmin); // Set the isAdmin value based on the decoded token
       } catch (error) {
-        console.error("Invalid token:", error);
+        console.error("Error decoding token:", error);
         setIsAdmin(false);
       }
     } else {
