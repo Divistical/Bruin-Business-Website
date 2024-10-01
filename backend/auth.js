@@ -33,13 +33,14 @@ router.post("/login", async (req, res) => {
     if (!user) return res.status(400).send("User not found");
 
     // Compare the plain password with the hashed password in the DB
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user.hashedPassword);
 
     if (!isMatch) return res.status(400).send("Invalid credentials");
 
     // if successful, generate a token and send it to the client
-    const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ username: user.username, isAdmin: user.isAdmin }, JWT_SECRET, { expiresIn: "1h" });
 
+    console.log(token)
     res.cookie("token", token, {
       httpOnly: true, // Prevents client-side JS from accessing the cookie
       secure: process.env.NODE_ENV === "production", // Ensures the cookie is sent over HTTPS only in production
@@ -49,7 +50,7 @@ router.post("/login", async (req, res) => {
 
     res.status(200).json({ message: "Login successful" });
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     res.status(500).send("Error logging in");
   }
 });

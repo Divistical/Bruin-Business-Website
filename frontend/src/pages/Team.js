@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import Cookies from "js-cookie";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import MemberCard from "../components/MemberCard";
@@ -10,7 +11,7 @@ import axios from "axios";
 const backend_link = process.env.REACT_APP_BACKEND_URL || "";
 
 export default function Team() {
-  const { isAdmin } = useContext(AuthContext);
+  const { isAdmin, checkAdminStatus } = useContext(AuthContext);
   const [currentTeam, setCurrentTeam] = useState("executives");
   const [teamData, setTeamData] = useState([]);
   const [editingMember, setEditingMember] = useState(null); 
@@ -32,6 +33,12 @@ export default function Team() {
   useEffect(() => {
     setEditingMember(null);
   }, [currentTeam]);
+
+  useEffect(() => {
+    const token = Cookies.get("token"); // Retrieve token from cookies
+    console.log("Token found in cookies:", document.cookie); // Check if token exists
+    checkAdminStatus(token); // Verify if the token is properly being decoded
+  }, []);
 
   const handleRemoveMember = async (id) => {
     try {

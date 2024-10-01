@@ -8,19 +8,21 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const checkAdminStatus = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/checkCookie",
-        {}, // Empty object for the request body
-        {
-          withCredentials: true, // This is the correct place for this option
-        }
-      );
-      
-      setIsAdmin(true);
-    } catch (error) {
-      console.error("Login failed:", error);
+  const checkAdminStatus = (token) => {
+    if (!token) {
+      token = Cookies.get("token");
+    }
+  
+    if (token) {
+      try {
+        const decodedToken = jwtDecode(token);
+        console.log("Decoded token:", decodedToken); // Verify the token has isAdmin
+        setIsAdmin(decodedToken.isAdmin); // Set the isAdmin value based on the decoded token
+      } catch (error) {
+        console.error("Error decoding token:", error);
+        setIsAdmin(false);
+      }
+    } else {
       setIsAdmin(false);
     }
   };
