@@ -1,7 +1,7 @@
 import logo from "../assets/bruinlogo.png";
 import linkedin from '../assets/linkedin.png';
 import instagram from '../assets/instagram.png';
-import facebook from '../assets/facebook.png'
+import linktree from '../assets/linktree.png'
 import './css/Footer.css';
 
 export default function Footer() {
@@ -16,19 +16,19 @@ export default function Footer() {
         </span>
         </span>
         <div className="socials-container">
+        <a 
+            href="https://linktr.ee/bruinbusinessPR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={linktree} style={{ cursor: 'pointer' }} className="logo"/>
+          </a>
           <a
             href="https://www.linkedin.com/company/bruin-business/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src={linkedin} style={{ cursor: 'pointer' }} className="logo"/>
-          </a>
-          <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-          >
-            <img src={facebook} style={{ cursor: 'pointer' }} className="logo"/>
           </a>
           <a
               href="https://www.instagram.com/bruinbusiness/"

@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     res.status(500).send("Error registering user");
   }
-});
+}); 
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
@@ -55,8 +55,16 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post('/signout', (req, res) => {
+  res.clearCookie('token', { path: '/' });
+  res.status(200).send('Signed out');
+});
+
 const authenticateToken = (req, res, next) => {
   const token = req.cookies.token; // Read the JWT from the cookie
+
+  console.log("Token:", token);
+
   if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, JWT_SECRET, (err, user) => {
@@ -68,6 +76,10 @@ const authenticateToken = (req, res, next) => {
 
 router.get("/protected", authenticateToken, (req, res) => {
   res.send("This is a protected route");
+});
+
+router.post("/checkCookie", authenticateToken, (req, res) => {
+  res.send("Cookie is valid");
 });
 
 module.exports = router;

@@ -5,6 +5,10 @@
     gap: 20px; /* Space between cards */
   }
 
+img {
+  object-fit: cover;
+}
+
 h1 {
     text-align: center;
 }
