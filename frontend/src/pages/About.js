@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <Navbar />
-      <div className="page-container">
+      <div className="page-container" >
         <h1>ABOUT US</h1>
         <p>
           Established in 2024, Bruin Business is UCLA's newest business
@@ -30,19 +30,21 @@ export default function About() {
         <p>
           Regardless of your major or background, we would love to have you at our open events!
           <br /> <br />
-          To keep up with our events, feel free to join us through following our newsletter, Instagram, Facebook, and LinkedIn!
+          To keep up with our events, feel free to join us through following our Linktree, Instagram, and LinkedIn!
         </p>
-        <div className="container"> 
-          <p style={{ fontWeight: "600" , fontSize: "50px" }} className="border">
-            Join Bruin Business Today!
-            <button className="about-button" onClick={() => navigate('/join-student')}> Join Now </button>
-            <p style={{ fontFamily: "Noto Sans", fontSize: "20px" }}>
-              Become a part of our community and gain valuable skills and experiences.
-            </p>
+
+      <div className="border" >
+        <p style={{ fontWeight: "600" , fontSize: "50px" }} >
+          Join Bruin Business Today!
+          <button className="about-button" style={{ marginTop:"40px" }} onClick={() => navigate('/join-student')}> Join Now </button>
+          <p style={{ fontSize: "20px", textAlign: "center", marginRight:"150px"}}>
+          Become a part of our community and gain valuable skills and experiences.
           </p>
+        </p>
         </div>
-        <Footer/>
       </div>
+      <Footer/>
+
     </>
   );
 }

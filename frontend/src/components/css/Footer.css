@@ -1,9 +1,27 @@
+html, body {
+    height: 100%; /* Ensure the body takes the full height */
+    margin: 0; /* Remove default margin */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack footer at the bottom */
+}
+
+.page-container {
+    flex: 1; /* This allows the page container to take up available space */
+    padding-bottom: 50px; /* Add space to prevent content from hiding behind the footer */
+}
+
 .footer {
     background-color: #003B5C; 
     color: white; 
     text-align: center;
     padding: 10px 0; 
     border-top: 2px solid black; 
+    /* Make the footer fixed at the bottom */
+    position: relative; /* Keep it relative to the document flow */
+    overflow: hidden;
 }
 
 .logo-container {
@@ -19,7 +37,6 @@
     display: flex;
     margin-right: 10px; 
     align-items: center;
-
 }
 
 .brand-name {
@@ -36,4 +53,4 @@
     display: flex;
     gap: 10px; 
     margin-left: 280px; 
-  }
+}

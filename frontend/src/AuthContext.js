@@ -25,8 +25,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signOut = () => {
-    Cookies.remove("token"); // Remove the token from cookies
+  const signOut = async () => {
+    try {
+        const response = await axios.post(
+          "http://localhost:5000/api/signout",
+          {}, // Empty object for the request body
+          {
+            withCredentials: true, // This is the correct place for this option
+          }
+        );
+    }
+    catch (error) {
+      console.log("Sign out error:", error);
+    }
+
     setIsAdmin(false);
   };
 

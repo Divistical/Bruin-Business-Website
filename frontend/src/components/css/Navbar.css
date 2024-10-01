@@ -1,49 +1,16 @@
+/* Navbar styles */
 .navbar {
-  width: 100%; 
-  position: absolute; 
-  top: 0; 
-  left: 0; 
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(255, 255, 255, 0.5);
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 50px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  text-align: center;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 8px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .logo-container {
@@ -61,9 +28,10 @@
   font-family: "STIX Two Text", sans-serif;
   font-size: 32px;
   font-weight: 600;
-  color: #0E215B;
+  color: #0e215b;
 }
 
+/* Navigation items */
 .nav-items {
   display: flex;
   list-style: none;
@@ -72,13 +40,117 @@
 }
 
 .nav-item {
-  margin: 0px 20px 0px 20px;
+  margin: 0px 20px;
   cursor: pointer;
-  color: #003B5C;
+  color: #003b5c;
   text-decoration: none;
 }
 
 .nav-item:hover {
-  color: #007BFF; 
-  transition: color 0.3s ease; 
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  width: 100%; /* Make it full width */
+}
+
+.dropdown-content {
+  display: none;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%; /* Make links take full width */
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown.open .dropdown-content {
+  display: block;
+}
+
+/* Dropdown Hover for Desktop */
+@media (min-width: 768px) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #003b5c;
+}
+
+/* Mobile navigation */
+.nav-items.mobile {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: white;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-items.mobile .nav-item {
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  background-color: #003b5c;
+  color: white;
+  width: 100%; /* Full width for mobile */
+}
+
+.nav-items.mobile.show {
+  display: flex;
+}
+
+/* Dropdown content for mobile */
+.nav-items.mobile .dropdown {
+  width: 100%; /* Ensure dropdown is full width like other nav items */
+}
+
+.nav-items.mobile .dropdown .dropdown-content {
+  position: relative; /* Position below the "Join Us" */
+  display: none;
+}
+
+.nav-items.mobile .dropdown.open .dropdown-content {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-items {
+    display: none;
+  }
+
+  .logo-container {
+    margin-left: 10px;
+  }
+
+  .brand-name {
+    font-size: 24px;
+  }
 }

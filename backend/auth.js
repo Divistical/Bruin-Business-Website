@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     res.status(500).send("Error registering user");
   }
-});
+}); 
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
@@ -52,6 +52,11 @@ router.post("/login", async (req, res) => {
     console.log(err);
     res.status(500).send("Error logging in");
   }
+});
+
+router.post('/signout', (req, res) => {
+  res.clearCookie('token', { path: '/' });
+  res.status(200).send('Signed out');
 });
 
 const authenticateToken = (req, res, next) => {

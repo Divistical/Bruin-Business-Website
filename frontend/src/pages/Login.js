@@ -60,7 +60,7 @@ export default function Login() {
       }
     } catch (err) {
       setError("Error registering user");
-      setSuccessMessage("");
+      setSuccessMessage(""); 
     }
   };
 
