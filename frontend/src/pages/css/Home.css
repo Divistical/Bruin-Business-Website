@@ -1,5 +1,107 @@
-.page-container-home{
+/* Home.css */
+
+/* General Styling */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Light background color */
+}
+
+.page-container-home {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
+  min-height: 100vh;
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto; /* Let the container width be based on content */
+  height: auto; /* Adjust height based on content */
+  display: inline-flex; /* Use inline-flex to fit content width */
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Add padding to provide space around content */
+  border-radius: 10px; /* Optional: Add border radius */
+  z-index: 1; /* Ensure it appears above other elements */
+}
+
+.overlay-content {
+  color: #fff;
+  padding: 20px; /* Reduce padding for more compact content */
+  text-align: center;
+  font-size: 24px;
+  border-radius: 5px;
+
+  max-width: none; /* Remove max-width limit */
+  white-space: nowrap; /* Prevent text from wrapping */
+  z-index: 2; /* Ensure content is above other elements */
+}
+
+/* Admin Dashboard Toggle Button */
+.admin-toggle {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin: 20px auto;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.admin-toggle:hover {
+  background-color: #0056b3;
+}
+
+/* Admin Dashboard Styling */
+.admin-dashboard {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+/* Slideshow Styling */
+.slideshow-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .overlay-content h1 {
+    font-size: 50px;
+  }
+
+  .admin-toggle {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .slideshow-container {
+    width: 90%;
+  }
 }
