@@ -1,0 +1,79 @@
+.project-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Slight hover effect */
+}
+
+.project-img {
+    width: 80%; /* Full width of the card */
+    height: 160px; /* Fixed height for all images */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 8px;
+    margin: 0 auto 15px;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.project-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.project-duration {
+    font-size: 1rem;
+    color: #888;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    overflow-y: auto;
+    max-height: 100px;
+    width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+/* Style the scrollbar for webkit browsers */
+.project-description::-webkit-scrollbar {
+    width: 6px;
+}
+
+.project-description::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.project-description::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.project-description::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

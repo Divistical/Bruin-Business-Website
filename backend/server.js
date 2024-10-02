@@ -7,6 +7,7 @@ const cors = require("cors");
 const authRoutes = require("./auth");
 const Slide = require("./models/Slide");
 const Member = require("./models/Member");
+const Project = require("./models/Project")
 
 const cookieParser = require("cookie-parser");
 
@@ -130,6 +131,55 @@ app.put("/api/members/:id", async (req, res) => {
     );
     res.json(updatedMember);
   } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/api/projects", async (req, res) => {
+  try {
+    const projects = await Project.find();
+    res.json(projects);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.post("/api/projects", upload.single("image"), async (req, res) => {
+  try {
+    let image = "";
+    if (req.file) {
+      image = req.file.buffer.toString("base64");
+    }
+
+    const { status, name, startYear, endYear, description } = req.body;
+    const newProject = new Project({ status, image, name, startYear, endYear, description });
+    await newProject.save();
+    res.status(201).json(newProject);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.delete("/api/projects/:id", async (req, res) => {
+  try {
+    const result = await Project.findByIdAndDelete(req.params.id);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.put("/api/projects/:id", async (req, res) => {
+  try {
+    const updatedProject = await Project.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.json(updatedProject);
+  } catch (error) {
+    console.log(error)
     res.status(500).json({ error: error.message });
   }
 });

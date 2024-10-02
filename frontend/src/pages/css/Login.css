@@ -5,19 +5,17 @@
     font-family: sans-serif;
     line-height: 1.5;
     min-height: 80vh;
-    background: #f3f3f3;
+    background: #f3f3f3; /* Fallback background color */
     flex-direction: column;
-    margin: 10vh auto; 
-
+    margin: 10vh auto;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 20px; 
     transition: transform 0.2s;
-    width: 100%;
+    width: 90%; /* Adjust width for responsiveness */
     max-width: 500px;
     text-align: center;
-
 }
 
 label {
@@ -32,7 +30,7 @@ label {
 
 input {
     display: block;
-    width: 100%;
+    width: 100%; /* Full width for input fields */
     margin-bottom: 15px;
     padding: 10px;
     box-sizing: border-box;
@@ -50,7 +48,7 @@ button {
     cursor: pointer;
     background-color: #4CAF50;
     font-family: "STIX Two Text" , sans-serif;
-    width: auto;
+    width: auto; /* Auto width for buttons */
     font-size: 16px;
     display: block;
     margin-left: auto; 
@@ -66,3 +64,20 @@ button.signout {
     background-color: #DC3545; 
     font-family: "STIX Two Text" , sans-serif;
 }
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+    .form-body {
+        padding: 15px; /* Reduce padding on smaller screens */
+        margin: 5vh auto; /* Reduce top and bottom margin */
+    }
+
+    button {
+        width: 50%; /* Full width for buttons */
+    }
+
+    input {
+        padding: 8px; /* Adjust padding for inputs */
+    }
+}
+

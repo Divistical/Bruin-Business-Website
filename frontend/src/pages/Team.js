@@ -42,6 +42,7 @@ export default function Team() {
     const token = Cookies.get("token"); // Retrieve token from cookies
     console.log("Token found in cookies:", document.cookie); // Check if token exists
     checkAdminStatus(token); // Verify if the token is properly being decoded
+    console.log(isAdmin)
   }, []);
 
   const handleRemoveMember = async (id) => {
