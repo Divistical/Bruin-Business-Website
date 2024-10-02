@@ -116,16 +116,16 @@ export default function Login() {
               <br />
             </>
           )}
-          <button type="submit">{isRegistering ? "Register" : "Login"}</button>
+          {/* <button type="submit">{isRegistering ? "Register" : "Login"}</button> */}
           {error && <p style={{ color: "red" }}>{error}</p>}
           {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
         </form>
-        <button
+        {/* <button
           className="switch"
           onClick={() => setIsRegistering(!isRegistering)}
         >
           {isRegistering ? "Switch to Login" : "Switch to Register"}
-        </button>
+        </button> */}
         {isAdmin && (
           <button
             className="signout"
