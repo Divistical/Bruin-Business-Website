@@ -70,7 +70,9 @@ body {
     }
 
     .footer-bottom {
-        display: none; 
+        display:flex;
+        padding: 0 1em;
+        font-size: 0.7rem;
     }
 
     .socials-container {

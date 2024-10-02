@@ -49,6 +49,7 @@ button {
     color: white;
     cursor: pointer;
     background-color: #4CAF50;
+    font-family: "STIX Two Text" , sans-serif;
     width: auto;
     font-size: 16px;
     display: block;
@@ -57,9 +58,11 @@ button {
 }
 
 button.switch {
-    background-color: #007BFF; 
+    background-color: #003B5C;
+    font-family: "STIX Two Text" , sans-serif;
 }
 
 button.signout {
     background-color: #DC3545; 
+    font-family: "STIX Two Text" , sans-serif;
 }

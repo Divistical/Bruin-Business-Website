@@ -24,10 +24,12 @@ h1 {
   padding: 10px 20px; 
   font-size: 16px; 
   cursor: pointer; 
-  background-color: #007BFF; 
+  background-color: #003B5C;
   color: white; 
-  border: none; 
-  border-radius: 5px; 
+  width: 15vw;
+  height: 5vh;
+  font-family: "STIX Two Text" , sans-serif;
+  border-radius: 20px;
   transition: background-color 0.3s ease; 
   display: inline-block;
 }
@@ -119,10 +121,11 @@ h1 {
     width: 60%;
     padding: 10px;
     font-size: 16px;
-    background-color: #007BFF;
+    background-color: #003B5C;
     color: white;
     border: none;
-    border-radius: 5px;
+    font-family: "STIX Two Text" , sans-serif;
+    border-radius: 20px;
     margin-bottom: 20px;
   }
 

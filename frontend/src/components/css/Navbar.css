@@ -97,6 +97,9 @@
   background: none;
   border: none;
   color: #003b5c;
+  margin-left: 6em;
+  position: absolute;
+  right: 20px;
 }
 
 .nav-items.mobile {

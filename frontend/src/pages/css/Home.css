@@ -10,6 +10,16 @@ html {
   height: 100%; /* Ensures full height for body */
 }
 
+.page-container-home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  text-align: center; 
+  position: relative;
+  overflow: hidden; 
+
+}
+
 /* Adjust the overlay container to not affect footer positioning */
 .overlay-container {
   position: relative; /* Change to relative to allow the layout to flow */
@@ -88,14 +98,16 @@ footer {
 /* Fixed Header */
 .overlay-content h1 {
   font-size: 100px;
+  padding-bottom: 50rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .overlay-content h1 {
-    font-size: 2em; /* Adjust font size for smaller screens */
-    padding: 0 10px; /* Add padding to prevent overflow */
-    text-align: center; /* Center text */
+    font-size: 2em;
+    padding: 0 10px; 
+    text-align: center;
+    padding-bottom: 60rem;
   }
 
   .admin-toggle {
@@ -106,12 +118,5 @@ footer {
   .slideshow-container {
     width: auto;
   }
-}
 
-/* Ensure the page doesn't scroll when at footer */
-.page-container-home {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensures footer stays at the bottom */
-  overflow: hidden; /* Prevents scrolling */
 }
